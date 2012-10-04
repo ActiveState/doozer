@@ -1,3 +1,3 @@
 package main
 
-const version = `unknown-4ad`
+const version = `unknown-ActiveState`
