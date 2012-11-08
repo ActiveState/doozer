@@ -7,7 +7,7 @@ import proto "code.google.com/p/goprotobuf/proto"
 import "math"
 
 // Reference proto and math imports to suppress error if they are not otherwise used.
-var _ = proto.GetString
+var _ = proto.Marshal
 var _ = math.Inf
 
 type request_Verb int32
@@ -50,11 +50,6 @@ var request_Verb_value = map[string]int32{
 	"ACCESS": 99,
 }
 
-// newRequest_Verb is deprecated. Use x.Enum() instead.
-func newRequest_Verb(x request_Verb) *request_Verb {
-	e := request_Verb(x)
-	return &e
-}
 func (x request_Verb) Enum() *request_Verb {
 	p := new(request_Verb)
 	*p = x
@@ -110,11 +105,6 @@ var response_Err_value = map[string]int32{
 	"NOENT":        22,
 }
 
-// newResponse_Err is deprecated. Use x.Enum() instead.
-func newResponse_Err(x response_Err) *response_Err {
-	e := response_Err(x)
-	return &e
-}
 func (x response_Err) Enum() *response_Err {
 	p := new(response_Err)
 	*p = x
