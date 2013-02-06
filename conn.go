@@ -280,6 +280,11 @@ func (c *Conn) Access(token string) error {
 
 // Sets the contents of file to body, if it hasn't been modified since oldRev.
 func (c *Conn) Set(file string, oldRev int64, body []byte) (newRev int64, err error) {
+	// Bug #97261 - limit the body size
+	if len(body) > 3500 {
+		return -1, errors.New("value is too large")
+	}
+	
 	var t txn
 	t.req.Verb = request_SET.Enum()
 	t.req.Path = &file
